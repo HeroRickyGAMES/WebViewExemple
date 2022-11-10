@@ -9,10 +9,11 @@ import android.webkit.WebViewClient;
 
 import com.herorickystudios.webview.R;
 
+//Programado por HeroRicky_Games e Doménica
+
 public class ActivityWeb extends AppCompatActivity {
 
-    //Encapsulacion de tipo default
-    //No necesitamos un acceso tan restringido como private
+
     WebView webV;
 
     @Override
@@ -23,7 +24,7 @@ public class ActivityWeb extends AppCompatActivity {
         webV=(WebView)findViewById(R.id.webView);
 
         //URL do site
-        String url= "recargaexpresso.com.br/app/";
+        String url= "www.mariafm.adcast.com.br/";
 
         //WebViewClient() para que se abra dentro de la aplicacion
         webV.setWebViewClient(new WebViewClient());
