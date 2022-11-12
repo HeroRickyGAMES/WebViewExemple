@@ -3,9 +3,11 @@ package com.herorickystudios.webview;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.herorickystudios.webview.R;
 
@@ -24,7 +26,7 @@ public class ActivityWeb extends AppCompatActivity {
         webV=(WebView)findViewById(R.id.webView);
 
         //URL do site
-        String url= "www.mariafm.adcast.com.br/";
+        String url= "petcarurbaomeupetc.wixsite.com/petcarurb";
 
         //WebViewClient() para que se abra dentro de la aplicacion
         webV.setWebViewClient(new WebViewClient());
@@ -38,4 +40,27 @@ public class ActivityWeb extends AppCompatActivity {
         getSupportActionBar().hide();
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Botão voltar foi apertado", Toast.LENGTH_SHORT).show();
+        super.onBackPressed();
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_BACK:
+                    if (webV.canGoBack()) {
+                        webV.goBack();
+                    } else {
+                        finish();
+                    }
+                    return true;
+            }
+
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 }
